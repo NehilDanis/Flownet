@@ -11,7 +11,7 @@ def flying_chairs_loader(sample):
     :return:
     """
     inputs, target = sample[0], sample[1]
-    img1, img2 = imread(inputs[0]).astype(np.float32), imread(inputs[1]).astype(np.float32)
+    img1, img2 = np.asarray(imread(inputs[0]), dtype=np.float32), np.asarray(imread(inputs[1]), dtype=np.float32)
 
     with open(target, 'rb') as f:
         magic = np.fromfile(f, np.float32, count=1)
